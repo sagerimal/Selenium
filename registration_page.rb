@@ -3,6 +3,7 @@ require 'selenium-webdriver'
 require 'test/unit'
 
 
+
 class RegistrationPage < Test::Unit::TestCase
  #include PageObject
   # To change this template use File | Settings | File Templates.
@@ -19,13 +20,14 @@ class RegistrationPage < Test::Unit::TestCase
     @url=@properties['url']['qa']
   end
 
-  def teardown
+  def mteardown
     @driver.close
   end
 
 
   def test_sign_in
-   puts @url
+
+   puts "URL is",@url.inspect
    end
 
 
