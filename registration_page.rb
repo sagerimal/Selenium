@@ -16,23 +16,21 @@ class RegistrationPage < Test::Unit::TestCase
 
   def setUp
     @driver= Selenium::WebDriver.for :firefox
-    @properties = YAML.load('properties.yaml')
-    @url=@properties['url']['qa']
+    @properties = YAML.load_file('properties.yaml')
+
   end
 
-  def mteardown
+    def mteardown
     @driver.close
   end
 
 
   def test_sign_in
 
-   puts "URL is",@url.inspect
-   end
-
-
+  puts @properties['url']['qa']
   def log_in
 
   end
 
+  end
 end

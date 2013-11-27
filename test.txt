@@ -1,2 +1,2 @@
 This is just a readme file
-
+Properties files are hidden.
