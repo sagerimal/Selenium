@@ -10,10 +10,10 @@ class RegistrationPage < Test::Unit::TestCase
   def setUp
     @driver = Selenium::WebDriver.for :firefox
     @properties = YAML.load_file('properties.yaml')
-    @url = 'http://www.stg.rent.com'
-    @username = 'automated_insider@rent.com'
+    @url =
+    @username =
     @password= 'qatest11'
-    @email_address= "TEST"+Array.new(8){[*'0'..'9', *'a'..'z', *'A'..'Z'].sample}.join + "@rent.com"
+    @email_address= "TEST"+Array.new(8){[*'0'..'9', *'a'..'z', *'A'..'Z'].sample}.join +
     @driver.manage.timeouts.implicit_wait = 30
    end
 
