@@ -5,32 +5,38 @@ require 'test/unit'
 
 
 class RegistrationPage < Test::Unit::TestCase
- #include PageObject
-  # To change this template use File | Settings | File Templates.
 
-  #Instantiate browser and read from yaml file
-
-  sign_in_button=""
-  log_in_button=""
-  site_url=""
 
   def setUp
-    @driver= Selenium::WebDriver.for :firefox
+    @driver = Selenium::WebDriver.for :firefox
     @properties = YAML.load_file('properties.yaml')
+    @url = 'http://www.stg.rent.com'
+    @username = 'automated_insider@rent.com'
+    @password= 'qatest11'
+    @email_address= "TEST"+Array.new(8){[*'0'..'9', *'a'..'z', *'A'..'Z'].sample}.join + "@rent.com"
+    @driver.manage.timeouts.implicit_wait = 30
+   end
 
-  end
-
-    def mteardown
-    @driver.close
+  def teardown
+    @driver.quit
   end
 
 
   def test_sign_in
+    @driver.get(@url)
+    @driver.find_element(:xpath, "//span[@id='signin-text']/span").click
+    @driver.find_element(:id, "email_form_input").clear
+    @driver.find_element(:id, "email_form_input").send_keys(@username)
+    @driver.find_element(:id, "password").clear
+    @driver.find_element(:id, "password").send_keys(@password)
+    @driver.find_element(:id, "sign-in-button").click
 
-  puts @properties['url']['qa']
-  def log_in
+   def log_in
 
   end
+
+
+
 
   end
 end
